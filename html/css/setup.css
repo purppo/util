@@ -1,0 +1,67 @@
+.box {
+  border: 1px solid #ececec;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.box .box-heading {
+  padding: 10px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ececec;
+}
+.box .box-heading > .title {
+  margin: 0;
+  font-size: 18px;
+}
+.box .box-body {
+  padding: 15px;
+}
+.box .box-body > .caption {
+  display: block;
+  margin-bottom: 15px;
+  padding-bottom: 14px;
+  font-color: #000;
+  border-bottom: 1px solid #ececec;
+}
+
+.box + .box {
+  margin-top: 15px;
+}
+
+.table-setup th, .table-setup td {
+  font-size: 1em;
+}
+.table-setup td {
+  text-align: left;
+}
+.table-setup td .radio-inline, .table-setup td .checbox-inline {
+  padding-top: 0;
+}
+
+.table-nobordered > thead > tr > th, .table-nobordered > thead > tr > td, .table-nobordered > tbody > tr > th, .table-nobordered > tbody > tr > td, .table-nobordered > tfoot > tr > th, .table-nobordered > tfoot > tr > td {
+  border: none;
+}
+
+.offset-price {
+  overflow: hidden;
+  *zoom: 1;
+}
+.offset-price > label {
+  float: left;
+  margin-bottom: 0;
+  line-height: 30px;
+}
+
+.demand-sat {
+  background-color: #C3E8FF;
+}
+
+.demand-sun {
+  background-color: #FFC3C3;
+}
+
+.demand-hol {
+  background-color: #FFFFE2;
+}
