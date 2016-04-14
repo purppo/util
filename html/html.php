@@ -11,31 +11,32 @@ if($params['source'] != ''){
     //$len = mb_strlen($params['source']);
     
     $source_convert = preg_replace("/<(.*?)>/","asdasd<$1>", $params['source']);
+    //echo "<xmp>{$source_convert}</xmp>";
     
-    $exp = explode('asdasd', $source_convert);
+    $exp = explode('asdasd', str_replace("\r\n", "", $source_convert));
+    
+    $exp = array_values(array_filter($exp,function($html) {
+        return $html != '';
+    }));
     
     $tab_cnt = 0;
     foreach ($exp as $key => $html) {
         //upper case,lower case
-        if(preg_match("/<img|<input|<br|<\/br/i", $html)){
-            for ($i=0; $i < $tab_cnt; $i++) { 
-                $html = " ".$html;
-            }
+        if(preg_match("/<img|<input|<br|<\/br|<meta|<link|<script|<html|<body|<!/i", $html)){
+            
         }else if(preg_match("/<\/(.*?)>/", $html)){
-            $tab_cnt--;
-            for ($i=0; $i < $tab_cnt; $i++) { 
-                $html = " ".$html;
+            if(0 < $tab_cnt){
+                $tab_cnt--;
             }
         }else if(preg_match("/<(.*?)>/", $html)){
-            for ($i=0; $i < $tab_cnt; $i++) { 
-                $html = " ".$html;
-            }
             $tab_cnt++;
+        }
+        
+        for ($i=0; $i < $tab_cnt; $i++) {
+            $html = " ".$html;
         }
         $exp[$key] = $html;
     }
-    
-    $new = array();
     
     $e_cnt = count($exp);
     for ($i=0; $i < $e_cnt; $i++) { 
@@ -50,7 +51,7 @@ if($params['source'] != ''){
         }
     }
     
-    $params['source_convert'] = implode("\n", $exp);
+    $params['source_convert'] = implode("\r\n", $exp);
 }
 
 $smarty->assign('language_list',Items::getLaguageList());
