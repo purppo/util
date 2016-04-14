@@ -31,7 +31,7 @@
 			
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header page-header-relative">
-                <div>source En/De coding</div>
+                <div>Json De coding</div>
             </h1>
 		
 			<div>
@@ -42,7 +42,9 @@
 					<div class="col-sm-6">
 						<select name="type" class="select_search form-control input-sm">
 							{foreach from=$type_list key=k item=v}
-								<option value="{$v}" {if $params.type == $v} selected {/if}>{$v}</option>
+							    {if $v == 'decoding'}
+								    <option value="{$v}" {if $params.type == $v} selected {/if}>{$v}</option>
+								{/if}
 							{/foreach}}
 						</select>
 					</div>
@@ -53,10 +55,10 @@
 				</form>
 			</div>
 			
-			{if $params.source_convert != ''}
+			{if is_array($params.source_convert)}
 				</br></br>
-				<div style="width: 100%">
-					<pre>{$params.source_convert}</pre>
+				<div style="width: 100%;">
+					<xmp>{$params.source_convert|@var_dump}</xmp>
 				</div>
 			{/if}
 			

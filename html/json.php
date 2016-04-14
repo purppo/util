@@ -8,7 +8,7 @@ $params['source_convert'] = '';
 
 if($params['source'] != ''){
 	if($params['type'] == 'decoding'){
-		$params['source_convert'] = urldecode($params['source']);
+		$params['source_convert'] = json_decode($params['source'],JSON_PRETTY_PRINT);
 	}else if($params['type'] == 'encoding'){
 		$params['source_convert'] = urlencode($params['source']);
 	}

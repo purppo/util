@@ -892,3 +892,21 @@ border-color: #cccccc!important;
 .icon-weather-19,.icon-weather-20,.icon-weather-21,.icon-weather-22,.icon-weather-23,.icon-weather-24,.icon-weather-25,.icon-weather-29,.icon-weather-43,.icon-weather-44{
   background-image: url(../img/weather/icon-yuki.svg);
 }
+
+xmp{
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
